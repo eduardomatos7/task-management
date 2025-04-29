@@ -24,11 +24,12 @@
         </form>
         <% if (list && list.tasks.length > 0) { %>
         <% list.tasks.forEach(taskName => {%>
-            <div class="contentList" id="<%= taskName.id %>">
+            <form method="POST" action="/tarefa/<%= list.id %>/completed/<%=taskName.id%>" class="contentList <%=taskName.completed ? 'success' : ''%>" id="<%= taskName.id %>">
                 <p><%= taskName.name %></p>
-                <button type="button" class="btn btn-success btn-sm">concluir</button>
-                
-            </div>
+                <% if (taskName.completed === false){%>
+                <button type="submit" class="btn btn-success btn-sm">concluir</button>
+                <% }%>
+            </form>
       <% }) %>
       <% } else { %>
           <p>Você não possui nenhuma atividade nessa lista de tarefas. Adicione uma nova tarefa abaixo</p>

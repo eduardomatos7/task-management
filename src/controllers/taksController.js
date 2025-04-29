@@ -37,6 +37,12 @@ deleteList: (req, res) => {
    const { id } = req.params
    tasksManager.deleteList(id)
    res.redirect('/app')
+},
+completTask: (req, res) => {
+    const { id, idTask } = req.params
+    tasksManager.concludedTask(id, idTask)
+    res.redirect(`/tarefa/${id}`)
+
 }
 }
 
