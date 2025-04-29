@@ -22,7 +22,7 @@
         <% tasks.forEach(listName => {%>
             <div class="contentList" id="<%= listName.id %>">
                 <a href="/tarefa/<%= listName.id %>"><%= listName.name %></a>
-                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                <button type="button" class="btn btn-danger btn-sm"><a href="/delete/<%= listName.id %>">Excluir</a></button>
                 
             </div>
       <% }) %>

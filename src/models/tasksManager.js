@@ -31,5 +31,9 @@ const tasksManager = {
     saveList: (list) => {
         listsTasks.push(list)
     },
+    deleteList: (id) => {
+        const indexList = listsTasks.findIndex(list => list.id === id)
+        listsTasks.splice(indexList, 1)
+    }
 }
 module.exports = tasksManager

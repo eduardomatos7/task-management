@@ -18,4 +18,5 @@ router.post('/saveTask/:id', tasksController.saveTask)
 
 router.get('/tarefa/:id', tasksController.task)
 
+router.get('/delete/:id', tasksController.deleteList)
 module.exports = router

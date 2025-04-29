@@ -32,7 +32,13 @@ saveTask:(req, res) => {
     const task = tasksManager.createTask(nameTask)
     tasksManager.saveTask(task, id)
     res.redirect(`/tarefa/${id}`)
+},
+deleteList: (req, res) => {
+   const { id } = req.params
+   tasksManager.deleteList(id)
+   res.redirect('/app')
 }
 }
+
 
 module.exports = tasksController
