@@ -13,21 +13,20 @@
 </head>
 
 <body>
-    <div class="containerList">
+    <div class="container d-grid gap-3 mt-2">
         <%- include('partials/header') %>
         <div class="title">
             <h1>Listas de tarefas</h1>
         </div>
         <% if (tasks.length > 0) { %>
         <% tasks.forEach(listName => {%>
-            <div class="contentList" id="<%= listName.id %>">
-                <a href="/tarefa/<%= listName.id %>"><%= listName.name %></a>
-                <button type="button" class="btn btn-danger btn-sm"><a href="/delete/<%= listName.id %>">Excluir</a></button>
-                
+            <div class="row justify-content-between border border-secondary rounded m-0 p-2" id="<%= listName.id %>">
+                <a class="col-auto p-0" href="/tarefa/<%= listName.id %>"><%= listName.name %></a>
+                <button  type="button" class="btn btn-danger btn-sm col-auto"><a href="/delete/<%= listName.id %>">Excluir</a></button>
             </div>
       <% }) %>
       <% } else { %>
-          <p>Você não possui nenhuma lista de tarefa. Adicione uma nova lista abaixo</p>
+          <p class="text-start">Você não possui nenhuma lista de tarefa. Adicione uma nova lista abaixo</p>
       <%} %>
             <div>
                 <button class="btn btn-primary btn-md"><a href="/adicionar">Nova lista de tarefas</a></button>

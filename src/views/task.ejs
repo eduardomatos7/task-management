@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="containerList">
+    <div class="container d-grid gap-3 mt-2">
         <%- include('partials/header') %>
         <div class="title">
             <h1><%= list && list.name %></h1>
@@ -23,16 +23,19 @@
                 <%= error %>
             </div>
         <% } %>
-        <form action="/saveTask/<%= list.id %>" method="POST" class="contentNewList">
-            <input type="text" name="nameTask" class="inputNewList">
-            <button type="submit" class="btn btn-primary btn-md">Adicionar</button>
+        <form action="/saveTask/<%= list.id %>" method="POST" class="row justify-content-between gap-2 m-0">
+            <input type="text" name="nameTask" class="col-auto flex-grow-1 text-light bg-transparent border border-secondary rounded">
+            <button type="submit" class="btn btn-primary btn-md col-auto">Adicionar</button>
         </form>
         <% if (list && list.tasks.length > 0) { %>
         <% list.tasks.forEach(taskName => {%>
-            <form method="POST" action="/tarefa/<%= list.id %>/completed/<%=taskName.id%>" class="contentList <%=taskName.completed ? 'success' : ''%>" id="<%= taskName.id %>">
-                <p><%= taskName.name %></p>
+            <form method="POST" action="/tarefa/<%= list.id %>/completed/<%=taskName.id%>" 
+                class="row justify-content-between gap-2 m-0 p-2 rounded 
+                <%=taskName.completed ? 'bg-success' : 'border border-secondary'%>" 
+                id="<%= taskName.id %>">
+                <p class="col-auto flex-grow-1 text-light"><%= taskName.name %></p>
                 <% if (taskName.completed === false){%>
-                <button type="submit" class="btn btn-success btn-sm">concluir</button>
+                <button type="submit" class="btn btn-success btn-sm col-auto">concluir</button>
                 <% }%>
             </form>
       <% }) %>

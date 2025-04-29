@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <div class="containerNewList">
+    <div class="container d-grid gap-3 mt-2">
         <%- include('partials/header') %>
-        <div class="title">
+        <div class="text-start">
             <h1>Nova lista de tarefa</h1>
         </div>
         <% if (typeof error !== 'undefined') { %>
@@ -23,9 +23,9 @@
                 <%= error %>
             </div>
         <% } %>
-        <form action="/saveList" method="POST" class="contentNewList">
-            <input type="text" name="nameList" class="inputNewList">
-            <button type="submit" class="btn btn-primary btn-md">Adicionar</button>
+        <form action="/saveList" method="POST" class="row justify-content-between gap-2 m-0">
+            <input type="text" name="nameList" class="col-auto flex-grow-1 text-light bg-transparent border border-secondary rounded">
+            <button type="submit" class="btn btn-primary btn-md col-auto">Adicionar</button>
         </form>
             
             <div>
