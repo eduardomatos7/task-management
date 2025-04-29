@@ -18,6 +18,11 @@
         <div class="title">
             <h1><%= list && list.name %></h1>
         </div>
+        <% if (typeof error !== 'undefined') { %>
+            <div class="error-message">
+                <%= error %>
+            </div>
+        <% } %>
         <form action="/saveTask/<%= list.id %>" method="POST" class="contentNewList">
             <input type="text" name="nameTask" class="inputNewList">
             <button type="submit" class="btn btn-primary btn-md">Adicionar</button>
